@@ -1,42 +1,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>DummyPro</groupId>
-  <artifactId>DummyPro</artifactId>
+  <groupId>SeleniumFramework5jan2022</groupId>
+  <artifactId>SeleniumFramework5jan2022</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-     <build>
-
-<plugins>
-  <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.10.1</version>
-        <configuration>
-         <source>17</source>
-         <target>17</target>
-        </configuration>
-        
-      </plugin>
-
- <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>3.0.0-M7</version>
-         <configuration>
-
-
-<suiteXmlFiles>
-
-<suiteXmlFile>testng.xml</suiteXmlFile>
-
-</suiteXmlFiles>
-
-</configuration>
-      </plugin>
- </plugins>
-
-</build>
   
-   <dependencies>
+ <dependencies>
  
 
 <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
@@ -45,6 +13,7 @@
     <artifactId>selenium-java</artifactId>
     <version>4.7.2</version>
 </dependency>
+
 
 
 <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
@@ -77,15 +46,17 @@
     <version>7.7.1</version>
     <scope>test</scope>
 </dependency>
-</dependencies>
-<profiles> 
+
+
+ </dependencies>
+ <profiles> 
 <profile> 
-<id>somke</id> 
+<id>somketest</id> 
 <build> 
 <pluginManagement>
  <plugins>
  
- <plugin>
+   <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>3.0.0-M8</version>
@@ -95,9 +66,36 @@
           </suiteXmlFiles>
         </configuration>
       </plugin>
-      </plugins>
+ 
+ </plugins>
 </pluginManagement>
  </build> 
  </profile>
- </profiles> 
+ 
+<profile> 
+<id>regression</id> 
+<build> 
+<pluginManagement>
+ <plugins>
+ 
+   <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.0.0-M8</version>
+        <configuration>
+          <suiteXmlFiles>
+            <suiteXmlFile>testng.xml</suiteXmlFile>
+          </suiteXmlFiles>
+        </configuration>
+      </plugin>
+ 
+ </plugins>
+</pluginManagement>
+ </build> 
+ </profile>
+ </profiles>  
 </project>
+
+
+
+
